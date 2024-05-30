@@ -45,4 +45,3 @@ The project allows for customization of detection parameters to suit specific ne
 
 ---
 
-This summary provides an overview of the RK3399Pro Object Detection Project, including its key features, technologies, and usage instructions. Let me know if you need more detailed documentation or further assistance with this project!
