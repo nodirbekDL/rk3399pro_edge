@@ -103,4 +103,4 @@ A project leveraging the Rockchip RK3399Pro device for real-time fire detection 
 * Log level settings
 
 ## Related Projects
-[RK3399Pro Fire Detection System](https://github.com/nodirbekDL/nx_vms_edge) - Standalone edge AI implementation using the same RK3399Pro device for fire detection, which evolved into this distributed architecture approach.
+[Nx VMS Edge Device Detection Plugin](https://github.com/nodirbekDL/nx_vms_edge) - The Nx VMS Edge Device Detection Plugin is an advanced integration solution that leverages edge computing devices to perform real-time video analytics.
