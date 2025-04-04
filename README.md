@@ -102,8 +102,5 @@ A project leveraging the Rockchip RK3399Pro device for real-time fire detection 
 * Camera stream parameters
 * Log level settings
 
-## Future Improvements
-* Integration with multiple camera streams for wider coverage
-* Implementation of smoke detection alongside fire detection
-* Development of a mobile application for remote monitoring
-* Battery backup system for continued operation during power outages
+## Related Projects
+[RK3399Pro Fire Detection System](https://github.com/nodirbekDL/nx_vms_edge) - Standalone edge AI implementation using the same RK3399Pro device for fire detection, which evolved into this distributed architecture approach.
