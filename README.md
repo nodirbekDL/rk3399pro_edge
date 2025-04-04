@@ -1,47 +1,101 @@
-# RK3399Pro Object Detection Project
+# RK3399Pro Fire Detection System
 
-### Short Description
-A project leveraging the Rockchip RK3399Pro device for object detection, involving the conversion of trained PyTorch models to the RKNN format for efficient NPU inference on the RK3399Pro.
+## Short Description
+A project leveraging the Rockchip RK3399Pro device for real-time fire detection in industrial and construction environments, achieving over 90% accuracy with high-speed processing at 20 FPS. This solution employs the edge device's Neural Processing Unit (NPU) for efficient on-site monitoring without requiring cloud connectivity.
 
-### Key Features/Technologies
-- **Deep Learning Training**: Employed PyTorch with the YOLOv7 model for object detection training.
-- **Model Conversion**: Converted PyTorch models to ONNX format, and subsequently from ONNX to RKNN using the RKNN tool 1.7.3, as there is no direct library for PT to RKNN conversion.
-- **Edge Device Optimization**: Focused on running inferences on the RK3399Pro's NPU for efficient and real-time object detection.
+## Key Features/Technologies
+* **Deep Learning Training**: Employed PyTorch with the YOLOv7 model for fire detection training.
+* **Model Conversion Pipeline**: Converted PyTorch models to ONNX format, and subsequently from ONNX to RKNN using the RKNN tool 1.7.3.
+* **Edge Device Optimization**: Optimized for running inferences on the RK3399Pro's NPU, achieving 20 FPS with over 90% accuracy.
+* **Alert System Integration**: Automated HTTP request generation to Central Monitoring Systems upon fire detection.
 
-### Detailed Explanation
+## Hardware Overview
 
-#### Deep Learning Training
-- **Model**: Utilized the YOLOv7 model for training object detection.
-- **Framework**: PyTorch was the framework used for training due to its flexibility and support for state-of-the-art models.
-- **Training Environment**: Training was conducted on a high-performance GPU system to expedite the process and achieve accurate results.
+### RK3399Pro N10 Development Board
 
-#### Model Conversion
-- **ONNX Conversion**: The trained PyTorch model was first converted to ONNX format, providing a standardized intermediate representation.
-- **RKNN Conversion**: Using RKNN tool 1.7.3, the ONNX model was further converted to RKNN format. This step was crucial for enabling the model to run on the RK3399Pro's NPU.
+![RK3399Pro N10 Front View](media/rk2_re.jpg)
+*RK3399Pro N10 development board (front view) with heatsink and I/O ports*
 
-#### Edge Device Optimization
-- **NPU Inference**: The RK3399Pro's NPU was leveraged to perform efficient and real-time object detection. The optimization ensured that the model could run smoothly on the edge device, providing quick and accurate detections.
+![RK3399Pro N10 Back View](media/rk4_re.jpg)
+*RK3399Pro N10 development board (back view)*
 
-### Challenges and Learnings
-One significant challenge was the lack of comprehensive articles, documentation, and forums specifically for the RK3399Pro device. Most of the resources were in Chinese, requiring the use of translation tools and extra effort to implement the solutions effectively. This experience highlighted the importance of resourcefulness and adaptability in navigating non-English technical resources.
+![RK3399Pro Logo](media/rk3399_logo.jpg)
+*RK3399Pro chipset logo*
 
-### Screenshots/Media
-![RK3399Pro Object Detection Screenshot](link-to-screenshot)
+## Fire Detection Demonstration
 
-### Link to Project/Repository
-[GitHub Repository](https://github.com/username/rk3399pro-object-detection) | [Live Demo](https://username.github.io/rk3399pro-object-detection/)
+<video controls width="100%">
+  <source src="media/fire_detection_demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+*15-second demonstration of the fire detection system in action*
 
-### Usage
+## Detailed Explanation
 
-#### Basic Usage
-Once the model is converted to RKNN format and deployed on the RK3399Pro, it can perform real-time object detection using the device's NPU. The setup involves configuring the RKNN model to run on the edge device and monitoring the detections through a connected interface.
+### Deep Learning Training
+* **Model**: Utilized the YOLOv7 model for training fire detection.
+* **Framework**: PyTorch was the framework used for training due to its flexibility and support for state-of-the-art models.
+* **Training Environment**: Training was conducted on a high-performance GPU system to expedite the process and achieve accurate results.
+* **Dataset**: Custom dataset including various fire scenarios in both indoor and outdoor industrial environments.
 
-#### Configuration
-The project allows for customization of detection parameters to suit specific needs. Adjust detection thresholds, specify objects of interest, and configure notifications or alerts based on detection results.
+### Model Conversion
+* **ONNX Conversion**: The trained PyTorch model was first converted to ONNX format, providing a standardized intermediate representation.
+* **RKNN Conversion**: Using RKNN tool 1.7.3, the ONNX model was further converted to RKNN format. This step was crucial for enabling the model to run on the RK3399Pro's NPU.
+* **Optimization Process**:
+  * Quantization applied to reduce model size and improve inference speed
+  * Layer fusion for optimized execution on the NPU
+  * Parameter tuning for balance between accuracy and performance
 
-#### Advanced Features
-- **Real-time Monitoring**: Set up a monitoring system to visualize detections in real-time, providing immediate feedback on object presence.
-- **Detailed Reports**: Generate reports on object detection performance over time to evaluate and improve model accuracy.
+### Edge Device Optimization
+* **NPU Inference**: The RK3399Pro's NPU was leveraged to perform efficient and real-time fire detection.
+* **Performance Tuning**: Optimized for 20 FPS operation while maintaining accuracy above 90%.
+* **Environmental Adaptation**: Model fine-tuned to handle varying lighting conditions in both indoor and outdoor settings.
+* **Network Integration**: Configured for seamless connectivity to IP cameras and alert systems.
 
----
+### Fire Detection Application
+* **Deployment Environment**: Successfully implemented in both indoor and outdoor settings at industrial sites and construction areas.
+* **Performance Metrics**: 
+  * Consistent 20 FPS detection rate across varying conditions
+  * Over 90% detection accuracy after training to reduce false positives
+  * Sub-second latency from detection to alert generation
+* **Alert System Integration**: 
+  * Edge device connected to IP cameras via network infrastructure
+  * Automatic HTTP request generation to Central Monitoring System (CMS) upon fire detection
+  * Immediate alerting capability for rapid emergency response
 
+## Challenges and Learnings
+* **Documentation Barriers**: Limited English resources for the RK3399Pro device required navigating Chinese documentation using translation tools.
+* **Model Optimization**: Balancing detection accuracy with real-time performance requirements demanded extensive experimentation with model parameters and quantization techniques.
+* **False Positive Reduction**: Fine-tuning the model to distinguish between actual fires and visually similar phenomena (sunlight reflections, red lights, etc.) required careful dataset curation and model training.
+* **Environmental Adaptability**: Ensuring reliable detection across varying lighting conditions and environments presented significant challenges that were overcome through comprehensive training data collection.
+
+## System Architecture
+
+![System Architecture Diagram](media/mermaid_rkn10.png)
+*System architecture diagram showing the data flow from camera input through the RK3399Pro to the alert system*
+
+## Usage Instructions
+
+### Setup Requirements
+* RK3399Pro N10 development board
+* IP camera with RTSP stream capability
+* Network connectivity for alert transmission
+* Central Monitoring System with HTTP request handling capability
+
+### Installation Steps
+1. Flash the provided system image to the RK3399Pro device
+2. Configure network settings for camera connectivity
+3. Set up HTTP endpoint information for the alert system
+4. Start the detection service and verify camera feed
+
+### Configuration Options
+* Detection sensitivity threshold adjustment
+* Alert frequency configuration
+* Camera stream parameters
+* Log level settings
+
+## Future Improvements
+* Integration with multiple camera streams for wider coverage
+* Implementation of smoke detection alongside fire detection
+* Development of a mobile application for remote monitoring
+* Battery backup system for continued operation during power outages
