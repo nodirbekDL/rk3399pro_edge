@@ -12,15 +12,21 @@ A project leveraging the Rockchip RK3399Pro device for real-time fire detection 
 ## Hardware Overview
 
 ### RK3399Pro N10 Development Board
+<figure>
+  <img src="media/rk2_re.jpg" alt="rk2_re">
+  <figcaption>RK3399Pro N10 development board  with heatsink and I/O ports</figcaption>
+</figure>
 
-![RK3399Pro N10 Front View](media/rk2_re.jpg)
-*RK3399Pro N10 development board (front view) with heatsink and I/O ports*
+<figure>
+  <img src="media/rk4_re.jpg" alt="rk4_re">
+  <figcaption>RK3399Pro N10 development board</figcaption>
+</figure>
 
-![RK3399Pro N10 Back View](media/rk4_re.jpg)
-*RK3399Pro N10 development board (back view)*
+<figure>
+  <img src="media/rk3399_logo.jpg" alt="rk4_re">
+  <figcaption>RK3399Pro chipset logo</figcaption>
+</figure>
 
-![RK3399Pro Logo](media/rk3399_logo.jpg)
-*RK3399Pro chipset logo*
 
 ## Fire Detection Demonstration
 
